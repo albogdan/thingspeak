@@ -45,9 +45,17 @@ public class SQLSocket {
 		}
 		
 	}
-	public void pushNewData(){
-		
-		
+	public void pushNewData(String data){
+		String command = "INSERT INTO espuploads (F1,F2,F3,F4,F5,F6,F7,F8) VALUES (" + data + ");"; 
+		System.out.println(command);
+		if(this.statement != null){
+			try {
+			this.statement.executeUpdate(command);
+			}catch (SQLException e){
+				e.printStackTrace();
+				System.out.println("Unable to execute update");
+			}
+		}
 		
 	}
 	
