@@ -7,7 +7,7 @@ import java.util.Enumeration;
 public class servlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
-		String database = "test1";
+		String database = "thingspeak";
 		String user = "SA";
 		String pw = "";
 		SQLSocket sqlSoc = new SQLSocket();
