@@ -4,12 +4,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import com.mysql.jdbc.jdbc2.optional.MysqlPooledConnection;
-
+//import com.mysql.jdbc.jdbc2.optional.MysqlPooledConnection; //URL FOR MYSQL
+import org.hsqldb.jdbcDriver;								  //URL FOR HSQLDB
 
 
 public class SQLSocket {
-	private String url = "jdbc:mysql://localhost:3306/";
+	//private String url = "jdbc:mysql://localhost:3306/"; //URL FOR MYSQL
+	private String url = "jdbc:hsqldb:hsql://localhost:9001/";	//URL FOR HSQLDB
 	private String username = "";
 	private String password = "";
 	private Connection connection = null;
@@ -28,7 +29,8 @@ public class SQLSocket {
 		System.out.println("Connecting to database...");
 		
 		try {
-			DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+			//DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+			DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver ());
 			connection = DriverManager.getConnection(this.url, this.username, this.password);
 			System.out.println("Database connected!");
 		}catch (SQLException e){
